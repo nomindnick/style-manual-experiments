@@ -37,8 +37,8 @@ Experiment repo for a local, privilege-safe reviewer that checks Lozano Smith li
 ## Current phase
 
 - **Phase 0** — done (this file, `PLAN.md`, `rules/CATALOG.md`, smoke test, `shared/`).
-- **Phase 0.5 — next** — three fixture documents (`clean.docx`, `kitchen-sink-violations.docx`, `realistic-mixed.docx`) drafted in a fresh session against user-supplied fact-pattern sketches.
-- **Phase 1** — one focused session per rule, in this order:
+- **Phase 0.5** — done. Three fixtures live under `fixtures/`: `clean.docx`, `kitchen-sink-violations.docx` (+ `*.violations.json` ground truth, 19 violations / 16 rule_ids), `realistic-mixed.docx` (+ `*.violations.json`, 5 violations). Reproducible from `fixtures/scripts/build_*.py`. Citations vetted in `fixtures/seed-citations.verified.md`. Reusable subagent briefs (`DRAFT_BRIEF.md`, `VERIFY_BRIEF.md`, `CORRUPT_BRIEF.md`) document the construction pipeline.
+- **Phase 1 — next** — one focused session per rule, in this order:
   1. `LS-SP-02` — two spaces between sentences (Tier 1; pressure-tests the scaffolding most gently)
   2. `LS-CITE-02` — section symbol placement (Tier 3)
   3. `LS-CAP-02` — district / board / etc. capitalization (Tier 4, LLM; may split into eval + integration sub-sessions)

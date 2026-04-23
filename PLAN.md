@@ -62,9 +62,9 @@ Discipline: anything a *second* rule needs gets promoted to `shared/`. Resist sp
 
 ## Phasing
 
-- **Phase 0** *(current session)* — this plan, `rules/CATALOG.md`, eyecite smoke test, minimal scaffolding
-- **Phase 0.5** *(next session, fresh context)* — fixture documents: `clean.docx` (passes everything), `kitchen-sink-violations.docx` (one of every violation), `realistic-mixed.docx` (plausible draft). Nick supplies fact-pattern sketches so they read like real LS work.
-- **Phase 1** *(separate session per rule)* — the four starter rules, each plugged into the scaffolding:
+- **Phase 0** ✅ *done* — this plan, `rules/CATALOG.md`, eyecite smoke test, minimal scaffolding
+- **Phase 0.5** ✅ *done* — three California superior-court demurrer fixtures under `fixtures/`: `clean.docx` (passes everything), `kitchen-sink-violations.docx` (19 violations across 16 rule_ids; sidecar `*.violations.json` is ground truth), `realistic-mixed.docx` (5 plausible-typo violations). Citations drawn exclusively from `fixtures/seed-citations.verified.md` (17 cases verified against CourtListener + 13 statutes verified against leginfo). Reusable subagent briefs (`DRAFT_BRIEF.md`, `VERIFY_BRIEF.md`, `CORRUPT_BRIEF.md`) and per-fixture audit trails are checked in for future fixture maintenance. All three fixtures are reproducible from `fixtures/scripts/build_*.py`.
+- **Phase 1** *(next — separate session per rule)* — the four starter rules, each plugged into the scaffolding:
   - Rule 1 — Two spaces between sentences (Tier 1)
   - Rule 2 — Section symbol placement: `§` inside parens, `section` outside (Tier 1 → 3)
   - Rule 3 — `district` / `Board` / etc. capitalization (Tier 4, LLM)
