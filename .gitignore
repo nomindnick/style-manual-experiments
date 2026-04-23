@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# source material — firm-internal, do not commit
+/source-docs/
+
+# editor
+.vscode/
+.idea/
+*.swp
+.DS_Store

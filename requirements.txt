@@ -1,0 +1,6 @@
+# Phase 0 dependencies for the LS Style Manual checker experiment repo.
+# Pin exact versions so future sessions reproduce the environment.
+# Bump deliberately; smoke-test + scaffolding were validated against these.
+
+eyecite==2.7.6
+python-docx==1.2.0
