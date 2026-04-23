@@ -71,7 +71,7 @@ Every rule identified from the Lozano Smith *Style Manual* (revision dated 2022-
 | ID | Rule | Tier | Source | Status |
 |---|---|---|---|---|
 | LS-SP-01 | Letters / memos: single-spaced, no indent, hard return between paragraphs | 2 | LS | descoped |
-| LS-SP-02 | **Two spaces between every sentence (including between substantive and citation sentences)** | 1 | LS | ⭐ planned-p1 |
+| LS-SP-02 | **Two spaces between every sentence (including between substantive and citation sentences)** | 1 | LS | implemented |
 | LS-SP-03 | Ellipses: three periods (four at end of sentence); single space on each side of each period (exception: word-count compression for court filings) | 1 | LS | planned |
 | LS-SP-04 | Two spaces after every colon | 1 | LS | planned |
 | LS-SP-05 | Semicolons: may replace period to link closely related independent clauses | 4 | LS | descoped |

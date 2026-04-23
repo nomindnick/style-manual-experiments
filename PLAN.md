@@ -53,7 +53,7 @@ Key seams (not all implemented in Phase 0):
 | `shared/document.py` | `.docx` loader exposing text, paragraphs, per-paragraph style metadata | Phase 0 (minimal) |
 | `shared/report.py` | Plain-text renderer over `list[Finding]` | Phase 0 (minimal) |
 | `shared/ollama_client.py` | Thin Ollama wrapper with structured-output support | When Rule 3 needs it |
-| `shared/eyecite_wrapper.py` | Adapter over eyecite returning `CitationSpan(paragraph_index, char_start, char_end, kind)` so other rules can ignore character ranges that fall inside a citation | Rule 1 (Phase 1) — pulled forward from "when Rule 4 needs it" so Tier-1 text rules can suppress citation-internal false positives (`Cal.App.4th`, `U.S.`, etc.) |
+| `shared/eyecite_wrapper.py` | Adapter over eyecite returning `CitationSpan(paragraph_index, char_start, char_end, kind)` so other rules can ignore character ranges that fall inside a citation | ✅ Built with Rule 1 (Phase 1) — minimal API: `citation_spans(document)` (lru-cached) + `CitationSpan.contains(offset)`. Spans cover only the volume/reporter/page token, so trailing pin-cite periods and citation-sentence closers (`.)`) remain visible to text rules — the behavior LS-SP-02 needs |
 | `shared/court_listener.py` | Citation-string lookup client | When Rule 4 needs it |
 
 Discipline: anything a *second* rule needs gets promoted to `shared/`. Resist speculative helpers.
@@ -64,8 +64,8 @@ Discipline: anything a *second* rule needs gets promoted to `shared/`. Resist sp
 
 - **Phase 0** ✅ *done* — this plan, `rules/CATALOG.md`, eyecite smoke test, minimal scaffolding
 - **Phase 0.5** ✅ *done* — three California superior-court demurrer fixtures under `fixtures/`: `clean.docx` (passes everything), `kitchen-sink-violations.docx` (19 violations across 16 rule_ids; sidecar `*.violations.json` is ground truth), `realistic-mixed.docx` (5 plausible-typo violations). Citations drawn exclusively from `fixtures/seed-citations.verified.md` (17 cases verified against CourtListener + 13 statutes verified against leginfo). Reusable subagent briefs (`DRAFT_BRIEF.md`, `VERIFY_BRIEF.md`, `CORRUPT_BRIEF.md`) and per-fixture audit trails are checked in for future fixture maintenance. All three fixtures are reproducible from `fixtures/scripts/build_*.py`.
-- **Phase 1** *(next — separate session per rule)* — the four starter rules, each plugged into the scaffolding:
-  - Rule 1 — Two spaces between sentences (Tier 1) — **also builds the minimal `shared/eyecite_wrapper.py`** in the same session, since the rule needs citation spans to suppress false positives on legal-abbreviation tokens (`Cal.App.4th`, `U.S. 662`, `F.3d 1370`, etc.); a small residual abbreviation list (honorifics, Latin, entity suffixes, code-name leaders eyecite doesn't tag) handles what the wrapper doesn't catch
+- **Phase 1** *(in progress — separate session per rule)* — the four starter rules, each plugged into the scaffolding:
+  - Rule 1 ✅ Two spaces between sentences (`LS-SP-02`, Tier 1) — shipped. Built the minimal `shared/eyecite_wrapper.py` alongside; suppression layers are eyecite spans → abbreviation list (honorifics, Latin connectors, entity suffixes, CA code-name leaders, court/reporter abbrevs, citation glue, `et al.`/`et seq.` tails) → single-letter initials → three-dot ellipsis. List is calibrated to CA litigation drafts; false-positive surface and known generalization gaps (apostrophe forms `Ass'n.`/`Comm'n.`, federal `Cir.`, degree initials, older typography) documented in `rules/01-two-spaces/NOTES.md`. Bias is precision over recall, per the operating principle below.
   - Rule 2 — Section symbol placement: `§` inside parens, `section` outside (Tier 1 → 3) — extends the wrapper as needed
   - Rule 3 — `district` / `Board` / etc. capitalization (Tier 4, LLM)
   - Rule 4 — Citation hallucination check via eyecite + CourtListener (Tier 3 + external) — extends the wrapper as needed

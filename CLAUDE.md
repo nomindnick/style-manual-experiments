@@ -22,13 +22,13 @@ Experiment repo for a local, privilege-safe reviewer that checks Lozano Smith li
 - **Rule interface:** subclass `shared.rule_base.Rule`, implement `check(Document) -> list[Finding]`. Declare `rule_id` / `name` / `manual_section` / `tier` as class attributes.
 - **Common contract:** `shared.finding.Finding` is what every rule emits and every renderer consumes. Don't invent bespoke output shapes.
 - **Shared helpers graduate lazily.** If a *second* rule needs something, promote to `shared/`. Resist speculative abstractions built ahead of a real caller.
-- **Smoke tests under `smoke-tests/`** — not a full pytest suite yet. Top-level `test_scaffolding.py` exists to catch pipeline regressions; will be removed when Rule 1 ships a real test.
+- **Smoke tests under `smoke-tests/`** — not a full pytest suite yet. Each rule ships its own `rules/NN-slug/test_rule.py` (synthetic + integration against the real `.docx` fixtures); run from the repo root.
 
 ## Running things
 
 ```bash
-# Phase 0 scaffolding sanity check
-.venv/bin/python test_scaffolding.py
+# Per-rule tests (LS-SP-02 currently)
+.venv/bin/python rules/01-two-spaces/test_rule.py
 
 # eyecite exploration
 .venv/bin/python smoke-tests/eyecite-ca-cites/run.py
@@ -38,9 +38,9 @@ Experiment repo for a local, privilege-safe reviewer that checks Lozano Smith li
 
 - **Phase 0** — done (this file, `PLAN.md`, `rules/CATALOG.md`, smoke test, `shared/`).
 - **Phase 0.5** — done. Three fixtures live under `fixtures/`: `clean.docx`, `kitchen-sink-violations.docx` (+ `*.violations.json` ground truth, 19 violations / 16 rule_ids), `realistic-mixed.docx` (+ `*.violations.json`, 5 violations). Reproducible from `fixtures/scripts/build_*.py`. Citations vetted in `fixtures/seed-citations.verified.md`. Reusable subagent briefs (`DRAFT_BRIEF.md`, `VERIFY_BRIEF.md`, `CORRUPT_BRIEF.md`) document the construction pipeline.
-- **Phase 1 — next** — one focused session per rule, in this order:
-  1. `LS-SP-02` — two spaces between sentences (Tier 1; pressure-tests the scaffolding most gently)
-  2. `LS-CITE-02` — section symbol placement (Tier 3)
+- **Phase 1 — in progress** — one focused session per rule:
+  1. ✅ `LS-SP-02` — two spaces between sentences (Tier 1) — shipped. Built `shared/eyecite_wrapper.py` (CitationSpan + per-paragraph spans, lru-cached) alongside; suppression layers and false-positive surface documented in `rules/01-two-spaces/NOTES.md`.
+  2. **next** — `LS-CITE-02` — section symbol placement (Tier 3)
   3. `LS-CAP-02` — district / board / etc. capitalization (Tier 4, LLM; may split into eval + integration sub-sessions)
   4. `LS-CITE-HAL` — citation hallucination check (Tier 3 + CourtListener)
 
