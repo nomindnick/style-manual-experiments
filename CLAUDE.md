@@ -27,8 +27,9 @@ Experiment repo for a local, privilege-safe reviewer that checks Lozano Smith li
 ## Running things
 
 ```bash
-# Per-rule tests (LS-SP-02 currently)
+# Per-rule tests
 .venv/bin/python rules/01-two-spaces/test_rule.py
+.venv/bin/python rules/02-section-symbol/test_rule.py
 
 # eyecite exploration
 .venv/bin/python smoke-tests/eyecite-ca-cites/run.py
@@ -40,8 +41,8 @@ Experiment repo for a local, privilege-safe reviewer that checks Lozano Smith li
 - **Phase 0.5** — done. Three fixtures live under `fixtures/`: `clean.docx`, `kitchen-sink-violations.docx` (+ `*.violations.json` ground truth, 19 violations / 16 rule_ids), `realistic-mixed.docx` (+ `*.violations.json`, 5 violations). Reproducible from `fixtures/scripts/build_*.py`. Citations vetted in `fixtures/seed-citations.verified.md`. Reusable subagent briefs (`DRAFT_BRIEF.md`, `VERIFY_BRIEF.md`, `CORRUPT_BRIEF.md`) document the construction pipeline.
 - **Phase 1 — in progress** — one focused session per rule:
   1. ✅ `LS-SP-02` — two spaces between sentences (Tier 1) — shipped. Built `shared/eyecite_wrapper.py` (CitationSpan + per-paragraph spans, lru-cached) alongside; suppression layers and false-positive surface documented in `rules/01-two-spaces/NOTES.md`.
-  2. **next** — `LS-CITE-02` — section symbol placement (Tier 3)
-  3. `LS-CAP-02` — district / board / etc. capitalization (Tier 4, LLM; may split into eval + integration sub-sessions)
+  2. ✅ `LS-CITE-02` — section symbol placement (Tier 3) — shipped. Bidirectional check with paragraph-local paren-depth scanner (brackets count too); CA state-court only, federal deviation documented. Scanner stays in-rule until LS-CITE-03 needs it. See `rules/02-section-symbol/NOTES.md`.
+  3. **next** — `LS-CAP-02` — district / board / etc. capitalization (Tier 4, LLM; may split into eval + integration sub-sessions)
   4. `LS-CITE-HAL` — citation hallucination check (Tier 3 + CourtListener)
 
 ## Things to avoid
