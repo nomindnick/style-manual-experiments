@@ -1,0 +1,53 @@
+{
+  "fixture": "realistic-mixed",
+  "source_draft": "Sierra Vista Wave-A draft (superseded; audit trail in fixtures/realistic-mixed.SOURCE_NOTES.md)",
+  "build_script": "fixtures/scripts/build_realistic-mixed.py",
+  "description": "Realistic-mixed profile: five plausible-typo violations planted deep in the arguments of the Sierra Vista demurrer, the kind a proofreader's eye might glaze past on a late-night read-through.",
+  "violations": [
+    {
+      "rule_id": "LS-CITE-02",
+      "severity": "error",
+      "paragraph_index": 60,
+      "snippet_before": "ntative.  (Pub. Cont. Code, § 20118.4, subd. (a).)  Califor",
+      "snippet_after": "ntative.  (Pub. Cont. Code, section 20118.4, subd. (a).)  Califor",
+      "description": "Inside a parenthetical code citation, `§` was replaced with the word `section`. LS Manual requires `§` (section symbol) inside parens; `section` spelled out only in running prose outside parens.",
+      "verification_hint": "Body paragraph 60 (the Pub. Cont. Code § 20118.4 discussion) contains `(Pub. Cont. Code, section 20118.4, subd. (a).)` — the only occurrence of the word `section` inside parens in the document. Grep for `, section ` preceded by an opening paren, or scan for `section` tokens whose nearest preceding parenthesis is `(`."
+    },
+    {
+      "rule_id": "LS-SP-02",
+      "severity": "error",
+      "paragraph_index": 62,
+      "snippet_before": "ey (1915) 171 Cal. 150, 154.)  Contractors who deal with ",
+      "snippet_after": "ey (1915) 171 Cal. 150, 154.) Contractors who deal with ",
+      "description": "Single space between a citation sentence and the following body sentence (should be two spaces per LS Manual). Mid-paragraph in the account-stated argument — the classic transition where a proofreader's eye slides past.",
+      "verification_hint": "In body paragraph 62, search for `171 Cal. 150, 154.) Contractors` — exactly one space between `)` and `Contractors`. All other sentence terminators in that paragraph still carry two spaces."
+    },
+    {
+      "rule_id": "LS-SP-02",
+      "severity": "error",
+      "paragraph_index": 72,
+      "snippet_before": " sections 17604 and 17605.  Pre-bid representation",
+      "snippet_after": " sections 17604 and 17605. Pre-bid representation",
+      "description": "Single space between two body sentences (`17605. Pre-bid representations`) where the clean draft had two. Mid-paragraph in the declaratory-relief argument.",
+      "verification_hint": "In body paragraph 72, search for `17605. Pre-bid` — exactly one space between the period and the capital P. All other sentence terminators in that paragraph still carry two spaces."
+    },
+    {
+      "rule_id": "LS-CAP-02",
+      "severity": "warning",
+      "paragraph_index": 81,
+      "snippet_before": "tions can bind the District despite the absence of",
+      "snippet_after": "tions can bind the district despite the absence of",
+      "description": "Lowercase `district` where the reference is unambiguously to the defined party-substitute (`the District` = Sierra Vista Unified School District). Deep in the equitable-estoppel argument, parallel to an earlier `the District` in the same sentence that was left capitalized — an inconsistency typical of a proofreader's miss.",
+      "verification_hint": "Body paragraph 81 contains exactly one lowercase `the district` reference (`bind the district despite`); the same paragraph also contains two properly capitalized `the District` references as controls. A rule-checker scanning for defined-term `District` should flag only this one token as inconsistent."
+    },
+    {
+      "rule_id": "LS-CITE-HAL",
+      "severity": "error",
+      "paragraph_index": 82,
+      "snippet_before": "ia (1979) 96 Cal.App.3d 340, 348–349 provides a",
+      "snippet_after": "ia (1979) 96 Cal.App.3d 304, 348–349 provides a",
+      "description": "Transposed digits in the first-page citation for *Air Quality Products, Inc. v. State of California* (1979): real cite is `96 Cal.App.3d 340`; corrupt cite is `96 Cal.App.3d 304`. The transposition is subtle (swap of last two digits), looks like a typo, but CourtListener lookup on `96 Cal.App.3d 304` does not return the Air Quality Products case.",
+      "verification_hint": "In body paragraph 82, the *Air Quality Products* cite reads `96 Cal.App.3d 304, 348–349`. Seed list entry is `Air Quality Products, Inc. v. State of California (1979) 96 Cal.App.3d 340`. A citation hallucination checker looking up the corrupt first-page against CourtListener should fail to match the case name."
+    }
+  ]
+}

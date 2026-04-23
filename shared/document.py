@@ -81,15 +81,19 @@ class Document:
                 font_size_pt = para.runs[0].font.size.pt
 
             line_spacing = pf.line_spacing
-            # python-docx returns either a float multiplier (e.g. 1.5) or an Emu/Pt
-            # depending on the rule. Normalize if it's a length.
+            # python-docx returns either a float multiplier (e.g. 1.5) or a Length
+            # (Pt/Emu) depending on the line-spacing rule. Length subclasses int
+            # for backward compat, so check for `.pt` *before* the int/float branch
+            # — otherwise Length objects get cast to float in EMU.
             line_spacing_value: float | None
             if line_spacing is None:
                 line_spacing_value = None
+            elif hasattr(line_spacing, "pt"):
+                line_spacing_value = float(line_spacing.pt)
             elif isinstance(line_spacing, (int, float)):
                 line_spacing_value = float(line_spacing)
-            else:  # Length object with .pt
-                line_spacing_value = float(getattr(line_spacing, "pt", line_spacing))
+            else:
+                line_spacing_value = None
 
             line_spacing_rule = (
                 pf.line_spacing_rule.name if pf.line_spacing_rule is not None else None

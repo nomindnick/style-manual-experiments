@@ -1,0 +1,179 @@
+{
+  "fixture": "kitchen-sink-violations",
+  "source_draft": "Eastvale Wave-A draft (superseded; audit trail in fixtures/kitchen-sink-violations.SOURCE_NOTES.md)",
+  "build_script": "fixtures/scripts/build_kitchen-sink.py",
+  "description": "Kitchen-sink profile: ~17 LS Style Manual violations across Phase-1 rules and neighbor coverage, each in a different paragraph. Derived from the clean Eastvale demurrer (Wave-A + Wave-B verified). One planned violation (LS-FN-05) was skipped because the source draft has no pseudo-footnotes.",
+  "violations": [
+    {
+      "rule_id": "LS-SP-02",
+      "severity": "error",
+      "paragraph_index": 43,
+      "snippet_before": "(1985) 39 Cal.3d 311, 318.)  The District does not",
+      "snippet_after": "(1985) 39 Cal.3d 311, 318.) The District does not",
+      "description": "Single space between the end of one citation sentence and the start of the next sentence (was two).",
+      "verification_hint": "Grep paragraph 43 for '318.) The District' (one space); the clean draft has two spaces."
+    },
+    {
+      "rule_id": "LS-SP-02",
+      "severity": "error",
+      "paragraph_index": 65,
+      "snippet_before": "should be sustained.  Because no amendment could",
+      "snippet_after": "should be sustained. Because no amendment could",
+      "description": "Single space between sentences (was two).",
+      "verification_hint": "Grep paragraph 65 for 'sustained. Because' (one space); clean draft has two."
+    },
+    {
+      "rule_id": "LS-SP-04",
+      "severity": "error",
+      "paragraph_index": 39,
+      "snippet_before": "rest on the same flawed premise:  that verbal",
+      "snippet_after": "rest on the same flawed premise: that verbal",
+      "description": "Single space after a body-prose colon introducing a clause (was two).",
+      "verification_hint": "Grep paragraph 39 for 'premise: that' (one space after colon); rule requires two spaces after colon in running prose."
+    },
+    {
+      "rule_id": "LS-SP-07",
+      "severity": "error",
+      "paragraph_index": 74,
+      "snippet_before": "no such officer, no such authorization, and no such consent",
+      "snippet_after": "no such officer, no such authorization and no such consent",
+      "description": "Oxford comma dropped in three-item list ('officer, authorization[,] and consent').",
+      "verification_hint": "Paragraph 74 has 'no such officer, no such authorization and no such consent' — missing Oxford comma before 'and'."
+    },
+    {
+      "rule_id": "LS-ETAL-01",
+      "severity": "error",
+      "paragraph_index": 78,
+      "snippet_before": "The rule originated in Reams v. Cooley (1915) 171 Cal. 150",
+      "snippet_after": "The rule originated in Reams v. Cooley, et al. (1915) 171 Cal. 150",
+      "description": "'et al.' preceded by a comma ('Reams v. Cooley, et al.'); LS forbids the comma-preceded form.",
+      "verification_hint": "Grep for ', et al.' (comma-space-et-al) in paragraph 78; the rule requires 'et al.' without a preceding comma."
+    },
+    {
+      "rule_id": "LS-QUOTE-01",
+      "severity": "error",
+      "paragraph_index": 80,
+      "snippet_before": "rather than “quantum meruit.”  California courts",
+      "snippet_after": "rather than “quantum meruit”.  California courts",
+      "description": "Closing period placed outside the closing quotation mark ('meruit”.'); LS puts period inside.",
+      "verification_hint": "Paragraph 80 contains 'quantum meruit”.' (period after close-quote); clean form is 'quantum meruit.”'."
+    },
+    {
+      "rule_id": "LS-QUOTE-02",
+      "severity": "error",
+      "paragraph_index": 60,
+      "snippet_before": "authorized by District personnel” and “refusing to process",
+      "snippet_after": "authorized by District personnel;” and “refusing to process",
+      "description": "Semicolon placed inside the closing quotation mark (';”'); LS places colons and semicolons outside.",
+      "verification_hint": "Paragraph 60 contains 'personnel;”' (semicolon before close-quote); clean form would be 'personnel”;' or no semicolon at all."
+    },
+    {
+      "rule_id": "LS-CITE-02",
+      "severity": "error",
+      "paragraph_index": 69,
+      "snippet_before": "Public Contract Code section 20118.4 governs change orders",
+      "snippet_after": "Public Contract Code § 20118.4 governs change orders",
+      "description": "Section symbol '§' used in body text outside parentheses; LS requires 'section' spelled out outside parens.",
+      "verification_hint": "Paragraph 69 begins 'Public Contract Code § 20118.4 governs'; the § is not inside a parenthetical citation."
+    },
+    {
+      "rule_id": "LS-CITE-03",
+      "severity": "error",
+      "paragraph_index": 55,
+      "snippet_before": "Under section 430.10, a party may demur on the ground",
+      "snippet_after": "Under section 430.10, subd. (e), a party may demur on the ground",
+      "description": "Abbreviation 'subd.' used outside parentheses; LS requires 'subdivision' spelled out outside parens.",
+      "verification_hint": "Paragraph 55 contains 'Under section 430.10, subd. (e), a party may demur' — the 'subd.' token is in running prose, not a parenthetical citation."
+    },
+    {
+      "rule_id": "LS-CITE-06g",
+      "severity": "error",
+      "paragraph_index": 70,
+      "snippet_before": "no authority to bind the district.  (Id.)",
+      "snippet_after": "no authority to bind the district.  (Ibid.)",
+      "description": "'Ibid.' used as a citation sentence; LS forbids 'ibid.' / 'Ibid.' entirely.",
+      "verification_hint": "Grep the document for 'Ibid' — it should appear exactly once, in paragraph 70, as '(Ibid.)'."
+    },
+    {
+      "rule_id": "LS-CITE-07",
+      "severity": "error",
+      "paragraph_index": 81,
+      "snippet_before": "(See Pub. Cont. Code, § 22300.)",
+      "snippet_after": "(See Pub. Cont. Code, § 22300, et seq.)",
+      "description": "'et seq.' preceded by a comma (', et seq.'); LS forbids the comma-preceded form.",
+      "verification_hint": "Paragraph 81 contains ', et seq.)' (comma before 'et seq.'); clean form is ' et seq.' (no preceding comma)."
+    },
+    {
+      "rule_id": "LS-CITE-08b",
+      "severity": "error",
+      "paragraph_index": 53,
+      "snippet_before": "(1992) 2 Cal.4th 962, 966-967.)",
+      "snippet_after": "(1992) 2 Cal.4th 962, 966-967.)",
+      "description": "Superscript applied to '4th' in '2 Cal.4th 962'; LS forbids superscript on ordinal reporter tokens. Visually identical in extracted text; detectable only via XML <w:vertAlign w:val=\"superscript\"/>.",
+      "verification_hint": "Inspect word/document.xml for '<w:vertAlign w:val=\"superscript\"/>' — exactly one occurrence, on the '4th' run in the Aubry first-cite in paragraph 53."
+    },
+    {
+      "rule_id": "LS-CITE-08d",
+      "severity": "error",
+      "paragraph_index": 79,
+      "snippet_before": "First Street Plaza Partners, 65 Cal.App.4th at pp. 668-669",
+      "snippet_after": "First Street Plaza Partners, supra, 65 Cal.App.4th at pp. 668-669",
+      "description": "'supra' inserted into a case short cite; LS short-cite form omits 'supra'.",
+      "verification_hint": "Grep for 'supra' — exactly one occurrence, in paragraph 79's 'First Street Plaza Partners, supra, 65 Cal.App.4th' short cite."
+    },
+    {
+      "rule_id": "LS-CITE-06c",
+      "severity": "error",
+      "paragraph_index": 63,
+      "snippet_before": "(Id. at pp. 349-350.)  [italicized]",
+      "snippet_after": "(Id. at pp. 349-350.)  [Id. run not italic]",
+      "description": "Italics removed from 'Id.' in '(Id. at pp. 349-350.)'; LS requires 'id.' (including the period) italicized.",
+      "verification_hint": "Inspect paragraph 63 runs; the 'Id.' run immediately after '(' should carry italic=False (no <w:i/> in rPr). The surrounding 'Guz' and 'Id. at pp.' flow text should be unchanged. Contrast: paragraph 61's 'Id.' is still italic."
+    },
+    {
+      "rule_id": "LS-CAP-02",
+      "severity": "error",
+      "paragraph_index": 40,
+      "snippet_before": "the District respectfully requests that the Court sustain",
+      "snippet_after": "the district respectfully requests that the Court sustain",
+      "description": "Defined-term 'District' incorrectly lowercased ('the district') where the reference is plainly to the named defendant client.",
+      "verification_hint": "Paragraph 40 reads 'the district respectfully requests'; elsewhere in the draft (including paragraph 85) the identical construction uses capitalized 'District'."
+    },
+    {
+      "rule_id": "LS-CAP-02",
+      "severity": "error",
+      "paragraph_index": 38,
+      "snippet_before": "every contract to which a California school district is a party",
+      "snippet_after": "every contract to which a California school District is a party",
+      "description": "Generic 'school district' incorrectly capitalized ('school District') where the reference is plainly generic (abstract California public agencies).",
+      "verification_hint": "Paragraph 38 contains 'a California school District is a party' — 'District' should be lowercase in this generic reference; compare paragraph 39's 'a school district' (clean)."
+    },
+    {
+      "rule_id": "LS-CAP-05",
+      "severity": "error",
+      "paragraph_index": 68,
+      "snippet_before": "Public Contract Code section 20118.4 requires change orders",
+      "snippet_after": "Public Contract Code Section 20118.4 requires change orders",
+      "description": "'Section' capitalized mid-sentence; LS requires lowercase 'section' in body text except at sentence start or in headings.",
+      "verification_hint": "Paragraph 68 contains 'Public Contract Code Section 20118.4 requires' mid-sentence. Contrast: paragraph 70's 'Section 17604 provides' is at sentence start (correctly capitalized)."
+    },
+    {
+      "rule_id": "LS-CITE-HAL",
+      "severity": "error",
+      "paragraph_index": 72,
+      "snippet_before": "City of Long Beach v. Mansell (1970) 3 Cal.3d 462, 493",
+      "snippet_after": "City of Long Beach v. Mansell (1970) 3 Cal.3d 462, 439",
+      "description": "Digits transposed in pin-cite: correct 493 -> planted 439. Case name and year remain correct; pin-cite no longer resolves to the cited proposition on CourtListener.",
+      "verification_hint": "Paragraph 72's Mansell cite reads '3 Cal.3d 462, 439'; the seed-verified cite is '3 Cal.3d 462, 493'. Volume/year match; the pin-cite is fabricated."
+    },
+    {
+      "rule_id": "LS-CITE-HAL",
+      "severity": "error",
+      "paragraph_index": 77,
+      "snippet_before": "foreclosed against public entities in California for more than a century.",
+      "snippet_after": "foreclosed against public entities in California for more than a century.  (See Lakeside School Dist. v. Coastal Builders, Inc. (2014) 229 Cal.App.4th 517, 523-524.)",
+      "description": "Wholly fabricated case citation added as a see-cite. 'Lakeside School Dist. v. Coastal Builders, Inc.' is not on fixtures/seed-citations.verified.md and does not exist on CourtListener.",
+      "verification_hint": "Grep for 'Lakeside School Dist.' — exactly one occurrence, in paragraph 77; cross-reference against seed-citations.verified.md (not present). The case name, volume, page, and year are all fabricated."
+    }
+  ]
+}
