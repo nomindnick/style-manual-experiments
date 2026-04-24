@@ -183,7 +183,7 @@ The densest section. Several of these are the Phase-1 focus.
 |---|---|---|---|---|
 | LS-CITE-01 | Citation sentences in parens, treated as complete sentences; period *inside* parens (not federal) | 3 | LS | planned |
 | LS-CITE-01a | In-sentence citations may be in parens but are not treated as separate sentences; period outside parens at end of sentence | 3 | LS | planned |
-| LS-CITE-02 | **"section" spelled out outside parens; `§` inside parens; `§§` for multiple sections** | 3 | LS | ⭐ planned-p1 |
+| LS-CITE-02 | **"section" spelled out outside parens; `§` inside parens; `§§` for multiple sections** | 3 | LS | implemented |
 | LS-CITE-02a | Same rule applies to "paragraph" → `¶` | 3 | LS | planned |
 | LS-CITE-03 | "subdivision" outside parens; `subd.` inside | 3 | LS | planned |
 | LS-CITE-04 | CA codes: comma after "Code" and space before `§`; comma before and after subdivision reference in sentence; comma precedes subdivision when in parens | 1 | LS | planned |
@@ -220,7 +220,7 @@ The densest section. Several of these are the Phase-1 focus.
 | LS-CITE-HAL | **Hallucination check: every extracted citation should resolve to a real authority on CourtListener (or equivalent)** | 3 + external | LS (novel) | ⭐ planned-p1 |
 
 **Notes**
-- LS-CITE-02 is Rule 2 in Phase 1. Implementation needs a reliable "inside-parens vs. outside-parens" detector, which may itself justify shared citation-context plumbing used later by LS-CITE-03, LS-CITE-06 family, and others.
+- LS-CITE-02 is Rule 2 in Phase 1 — shipped. Inside/outside-parens split implemented with a local paragraph-scan helper (`_paren_depth_array` in `rules/02-section-symbol/rule.py`); brackets count as openers too so `[… § X …]` sub-references inside citation sentences don't false-positive. "section"/"sections" only fires when followed by a statute-number-shaped token (precision gate over document-structural "Section IV"). Court-type note: assumes CA state practice; federal filings permit `§` in substantive sentences (deviation flagged in `NOTES.md`, to be wired up when `court_context` plumbing lands per PLAN open question #6). Helper will be promoted to `shared/` when LS-CITE-03 (subdivision / `subd.`) arrives and needs the same split — that is the "second caller" trigger.
 - LS-CITE-HAL is Rule 4 in Phase 1 and is the one novel "extension" beyond the manual's rules; it is scoped to "does this citation exist" and does *not* include the deeper "does this case stand for the proposition" check (explicitly out of scope per PLAN.md).
 - **Rule 4 scope refinement after Phase 0 eyecite smoke test:** hallucination check covers *case citations only* for Phase 1 (state + federal, including Westlaw-only). Statutory citations, Cal. Code Regs., and PERB / EERB / OAH / LRP administrative decisions appear in the report as "not auto-verified — please confirm manually" until the Phase 2 custom extractor lands. See `smoke-tests/eyecite-ca-cites/FINDINGS.md`.
 - LS-CITE-14c (signal appropriateness) is deferred: choosing `See` vs. no-signal vs. `Cf.` requires understanding what the cited authority actually says relative to the text proposition — high-value but high-risk, punted to Phase 2+ evaluation.
