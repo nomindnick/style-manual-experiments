@@ -1,0 +1,24 @@
+  defined terms in kitchen-sink: ['District', 'Plaintiff', 'HVAC']
+  corpus: 81 candidates
+  running gemma4:e4b ...
+  gemma4:e4b: 20/81 (171.1s elapsed)
+  gemma4:e4b: 40/81 (314.4s elapsed)
+  gemma4:e4b: 60/81 (475.1s elapsed)
+  gemma4:e4b: 80/81 (687.3s elapsed)
+  gemma4:e4b: 81/81 (692.8s elapsed)
+    wrote results.gemma4__e4b.json
+  running qwen3.5:9b ...
+  qwen3.5:9b: 20/81 (694.7s elapsed)
+  qwen3.5:9b: 40/81 (1290.1s elapsed)
+  qwen3.5:9b: 60/81 (2003.1s elapsed)
+  qwen3.5:9b: 80/81 (2696.9s elapsed)
+  qwen3.5:9b: 81/81 (2719.4s elapsed)
+    wrote results.qwen3.5__9b.json
+  running gemma4:26b ...
+  gemma4:26b: 20/81 (168.4s elapsed)
+  gemma4:26b: 40/81 (367.2s elapsed)
+  gemma4:26b: 60/81 (554.6s elapsed)
+  gemma4:26b: 80/81 (823.9s elapsed)
+  gemma4:26b: 81/81 (829.3s elapsed)
+    wrote results.gemma4__26b.json
+  running qwen3.5:27b ...

@@ -4,3 +4,8 @@
 
 eyecite==2.7.6
 python-docx==1.2.0
+# Ollama Python client for Tier 4 (LLM-based) rules. First needed by Rule 3
+# (LS-CAP-02). Bumps to this pin should be paired with a re-run of the
+# rules/03-cap-district/eval/ harness, since structured-output behavior
+# evolves between versions.
+ollama==0.6.1

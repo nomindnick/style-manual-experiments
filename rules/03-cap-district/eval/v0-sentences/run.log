@@ -1,0 +1,503 @@
+  corpus: 20 sentences (10 cap / 10 low)
+
+  running gemma4:e2b ...
+  gemma4:e2b  1/20  cap-01  ok   gold=capitalize pred=capitalize ✓  (14s)
+  gemma4:e2b  2/20  cap-02  ok   gold=capitalize pred=capitalize ✓  (16s)
+  gemma4:e2b  3/20  cap-03  ok   gold=capitalize pred=capitalize ✓  (19s)
+  gemma4:e2b  4/20  cap-04  ok   gold=capitalize pred=capitalize ✓  (22s)
+  gemma4:e2b  5/20  cap-05  ok   gold=capitalize pred=capitalize ✓  (25s)
+  gemma4:e2b  6/20  cap-06  ok   gold=capitalize pred=capitalize ✓  (27s)
+  gemma4:e2b  7/20  cap-07  ok   gold=capitalize pred=District   ✗  (30s)
+  gemma4:e2b  8/20  cap-08  ok   gold=capitalize pred=capitalize ✓  (33s)
+  gemma4:e2b  9/20  cap-09  ok   gold=capitalize pred=capitalize ✓  (36s)
+  gemma4:e2b 10/20  cap-10  ok   gold=capitalize pred=capitalize ✓  (38s)
+  gemma4:e2b 11/20  low-01  ok   gold=lowercase  pred=capitalize ✗  (40s)
+  gemma4:e2b 12/20  low-02  ok   gold=lowercase  pred=capitalize ✗  (43s)
+  gemma4:e2b 13/20  low-03  ok   gold=lowercase  pred=capitalize ✗  (45s)
+  gemma4:e2b 14/20  low-04  ok   gold=lowercase  pred=lowercase  ✓  (48s)
+  gemma4:e2b 15/20  low-05  ok   gold=lowercase  pred=capitalize ✗  (51s)
+  gemma4:e2b 16/20  low-06  ok   gold=lowercase  pred=capitalize ✗  (53s)
+  gemma4:e2b 17/20  low-07  ok   gold=lowercase  pred=capitalize ✗  (55s)
+  gemma4:e2b 18/20  low-08  ok   gold=lowercase  pred=capitalize ✗  (58s)
+  gemma4:e2b 19/20  low-09  ok   gold=lowercase  pred=capitalize ✗  (60s)
+  gemma4:e2b 20/20  low-10  ok   gold=lowercase  pred=capitalize ✗  (63s)
+    wrote results.gemma4__e2b.json
+
+  running gemma4:e4b ...
+  gemma4:e4b  1/20  cap-01  ok   gold=capitalize pred=capitalize ✓  (24s)
+  gemma4:e4b  2/20  cap-02  ok   gold=capitalize pred=capitalize ✓  (31s)
+  gemma4:e4b  3/20  cap-03  ok   gold=capitalize pred=capitalize ✓  (36s)
+  gemma4:e4b  4/20  cap-04  ok   gold=capitalize pred=capitalize ✓  (42s)
+  gemma4:e4b  5/20  cap-05  ok   gold=capitalize pred=capitalize ✓  (48s)
+  gemma4:e4b  6/20  cap-06  ok   gold=capitalize pred=capitalize ✓  (53s)
+  gemma4:e4b  7/20  cap-07  ok   gold=capitalize pred=capitalize ✓  (60s)
+  gemma4:e4b  8/20  cap-08  ok   gold=capitalize pred=capitalize ✓  (65s)
+  gemma4:e4b  9/20  cap-09  ok   gold=capitalize pred=capitalize ✓  (73s)
+  gemma4:e4b 10/20  cap-10  ok   gold=capitalize pred=capitalize ✓  (79s)
+  gemma4:e4b 11/20  low-01  ok   gold=lowercase  pred=lowercase  ✓  (85s)
+  gemma4:e4b 12/20  low-02  ok   gold=lowercase  pred=lowercase  ✓  (91s)
+  gemma4:e4b 13/20  low-03  ok   gold=lowercase  pred=capitalize ✗  (97s)
+  gemma4:e4b 14/20  low-04  ok   gold=lowercase  pred=lowercase  ✓  (104s)
+  gemma4:e4b 15/20  low-05  ok   gold=lowercase  pred=lowercase  ✓  (110s)
+  gemma4:e4b 16/20  low-06  ok   gold=lowercase  pred=capitalize ✗  (116s)
+  gemma4:e4b 17/20  low-07  ok   gold=lowercase  pred=lowercase  ✓  (122s)
+  gemma4:e4b 18/20  low-08  ok   gold=lowercase  pred=lowercase  ✓  (129s)
+  gemma4:e4b 19/20  low-09  ok   gold=lowercase  pred=lowercase  ✓  (136s)
+  gemma4:e4b 20/20  low-10  ok   gold=lowercase  pred=lowercase  ✓  (142s)
+    wrote results.gemma4__e4b.json
+
+  running gemma4:26b ...
+  gemma4:26b  1/20  cap-01  ok   gold=capitalize pred=capitalize ✓  (24s)
+  gemma4:26b  2/20  cap-02  ok   gold=capitalize pred=capitalize ✓  (29s)
+  gemma4:26b  3/20  cap-03  ok   gold=capitalize pred=capitalize ✓  (34s)
+  gemma4:26b  4/20  cap-04  ok   gold=capitalize pred=capitalize ✓  (40s)
+  gemma4:26b  5/20  cap-05  ok   gold=capitalize pred=capitalize ✓  (45s)
+  gemma4:26b  6/20  cap-06  ok   gold=capitalize pred=capitalize ✓  (49s)
+  gemma4:26b  7/20  cap-07  ok   gold=capitalize pred=capitalize ✓  (55s)
+  gemma4:26b  8/20  cap-08  ok   gold=capitalize pred=capitalize ✓  (60s)
+  gemma4:26b  9/20  cap-09  ok   gold=capitalize pred=capitalize ✓  (67s)
+  gemma4:26b 10/20  cap-10  ok   gold=capitalize pred=capitalize ✓  (73s)
+  gemma4:26b 11/20  low-01  ok   gold=lowercase  pred=lowercase  ✓  (79s)
+  gemma4:26b 12/20  low-02  ok   gold=lowercase  pred=lowercase  ✓  (83s)
+  gemma4:26b 13/20  low-03  ok   gold=lowercase  pred=lowercase  ✓  (88s)
+  gemma4:26b 14/20  low-04  ok   gold=lowercase  pred=lowercase  ✓  (94s)
+  gemma4:26b 15/20  low-05  ok   gold=lowercase  pred=lowercase  ✓  (100s)
+  gemma4:26b 16/20  low-06  ok   gold=lowercase  pred=lowercase  ✓  (106s)
+  gemma4:26b 17/20  low-07  ok   gold=lowercase  pred=lowercase  ✓  (111s)
+  gemma4:26b 18/20  low-08  ok   gold=lowercase  pred=lowercase  ✓  (116s)
+  gemma4:26b 19/20  low-09  ok   gold=lowercase  pred=lowercase  ✓  (121s)
+  gemma4:26b 20/20  low-10  ok   gold=lowercase  pred=lowercase  ✓  (126s)
+    wrote results.gemma4__26b.json
+
+model               ok err    acc    cap    low   lat(ms)
+------------------------------------------------------------
+gemma4:e2b          20   0  50.0%  90.0%  10.0%      3161
+gemma4:e4b          20   0  90.0% 100.0%  80.0%      7075
+gemma4:26b          20   0 100.0% 100.0% 100.0%      6293
+
+  gemma4:e2b — 10 miss(es):
+    [cap-07] gold=capitalize → pred=District (high)
+      Counsel for the [[District]] served the verified petition on Eastvale Joint USD's superintendent on January 5, 2026.
+      notes:     trigger appears before the named entity; both refer to same agency by sentence-level coreference
+      reasoning: The context implies a specific, identifiable governing body, likely a school district, which should be capitalized according to the style rule.
+    [low-01] gold=lowercase → pred=capitalize (high)
+      A [[school district]] that fails to provide a free appropriate public education may be liable under the IDEA.
+      notes:     indefinite generic; statutory class
+      reasoning: The term is used to refer to a specific, identifiable governmental entity in the context of legal liability.
+    [low-02] gold=lowercase → pred=capitalize (high)
+      Every county in California is required to maintain a [[board of supervisors]].
+      notes:     quantified generic
+      reasoning: The sentence refers to a specific governing body within the context of California counties, making it a specific entity.
+    [low-03] gold=lowercase → pred=capitalize (high)
+      Any [[board of education]] considering a layoff resolution should consult Education Code section 44955.
+      notes:     quantified hypothetical
+      reasoning: The phrase refers to a specific governing body within a context, implying a particular entity rather than a generic concept.
+    [low-05] gold=lowercase → pred=capitalize (high)
+      Education Code section 35160 authorizes a [[school district]] to enter into contracts for the construction of school facilities.
+      notes:     statutory paraphrase
+      reasoning: The sentence refers to a specific entity authorized by a code section, implying a specific, identifiable governing body.
+    [low-06] gold=lowercase → pred=capitalize (high)
+      Government Code section 25303 grants a [[board of supervisors]] general supervisorial authority over county officers.
+      notes:     statutory paraphrase
+      reasoning: The term is used in the context of a specific legal grant within a government code, referring to a specific governing body.
+    [low-07] gold=lowercase → pred=capitalize (high)
+      California [[school districts]] are funded primarily through the Local Control Funding Formula.
+      notes:     plural class reference
+      reasoning: The sentence refers to the specific school districts within California, implying identifiable entities rather than a generic class.
+    [low-08] gold=lowercase → pred=capitalize (high)
+      Unlike a private corporation, a [[school district]] is a creature of statute.
+      notes:     abstract class statement
+      reasoning: The sentence refers to a specific, identifiable entity (a particular school district), thus it should be capitalized.
+    [low-09] gold=lowercase → pred=capitalize (high)
+      A [[board of trustees]] owes fiduciary duties distinct from those owed by a county board of supervisors.
+      notes:     comparative; two triggers in sentence — judging the first
+      reasoning: The phrase refers to a specific, named governing body within a context, implying a specific entity rather than a generic class.
+    [low-10] gold=lowercase → pred=capitalize (high)
+      Most [[boards of education]] across the state have adopted similar policies regarding student cell phone use.
+      notes:     plural class reference
+      reasoning: The phrase refers to multiple, specific, identifiable governing bodies (boards of education) across the state, implying a reference to actual entities rather than a generic category.
+
+  gemma4:e4b — 2 miss(es):
+    [low-03] gold=lowercase → pred=capitalize (high)
+      Any [[board of education]] considering a layoff resolution should consult Education Code section 44955.
+      notes:     quantified hypothetical
+      reasoning: The sentence refers to 'board of education' in the context of a specific legal requirement (Education Code section 44955), implying a specific, identifiable governing body, not a general concept.
+    [low-06] gold=lowercase → pred=capitalize (high)
+      Government Code section 25303 grants a [[board of supervisors]] general supervisorial authority over county officers.
+      notes:     statutory paraphrase
+      reasoning: The phrase 'board of supervisors' is used here in the context of a specific legal grant (Government Code section 25303), implying a specific, identifiable governing body within a county, thus requiring capitalization.
+
+  gemma4:26b — perfect, no misses
+  corpus: 20 sentences (10 cap / 10 low)
+
+  running qwen3.5:9b ...
+  qwen3.5:9b  1/20  cap-01  ok   gold=capitalize pred=capitalize ✓  (40s)
+  qwen3.5:9b  2/20  cap-02  ok   gold=capitalize pred=capitalize ✓  (74s)
+  qwen3.5:9b  3/20  cap-03  ERR  gold=capitalize pred=None       ✗  (112s)
+  qwen3.5:9b  4/20  cap-04  ok   gold=capitalize pred=lowercase  ✗  (151s)
+  qwen3.5:9b  5/20  cap-05  ok   gold=capitalize pred=capitalize ✓  (188s)
+  qwen3.5:9b  6/20  cap-06  ok   gold=capitalize pred=capitalize ✓  (225s)
+  qwen3.5:9b  7/20  cap-07  ok   gold=capitalize pred=capitalize ✓  (265s)
+  qwen3.5:9b  8/20  cap-08  ok   gold=capitalize pred=capitalize ✓  (301s)
+  qwen3.5:9b  9/20  cap-09  ok   gold=capitalize pred=capitalize ✓  (338s)
+  qwen3.5:9b 10/20  cap-10  ok   gold=capitalize pred=capitalize ✓  (374s)
+  qwen3.5:9b 11/20  low-01  ok   gold=lowercase  pred=lowercase  ✓  (411s)
+  qwen3.5:9b 12/20  low-02  ok   gold=lowercase  pred=lowercase  ✓  (450s)
+  qwen3.5:9b 13/20  low-03  ok   gold=lowercase  pred=lowercase  ✓  (487s)
+  qwen3.5:9b 14/20  low-04  ok   gold=lowercase  pred=lowercase  ✓  (523s)
+  qwen3.5:9b 15/20  low-05  ok   gold=lowercase  pred=lowercase  ✓  (561s)
+  qwen3.5:9b 16/20  low-06  ok   gold=lowercase  pred=capitalize ✗  (598s)
+  qwen3.5:9b 17/20  low-07  ok   gold=lowercase  pred=lowercase  ✓  (633s)
+  qwen3.5:9b 18/20  low-08  ok   gold=lowercase  pred=lowercase  ✓  (668s)
+  qwen3.5:9b 19/20  low-09  ok   gold=lowercase  pred=capitalize ✗  (706s)
+  qwen3.5:9b 20/20  low-10  ok   gold=lowercase  pred=lowercase  ✓  (740s)
+    wrote results.qwen3.5__9b.json
+
+model               ok err    acc    cap    low   lat(ms)
+------------------------------------------------------------
+qwen3.5:9b          19   1  84.2%  80.0%  80.0%     37022
+
+  qwen3.5:9b — 4 miss(es):
+    [cap-03] ERROR: JSONDecodeError: Expecting ',' delimiter: line 2 column 80 (char 81)
+      Defendant Fresno Unified [[School District]] (the "District") demurs to the Complaint.
+      notes:     in-sentence definition; trigger is part of named defendant
+    [cap-04] gold=capitalize → pred=lowercase (high)
+      Petitioner City of Modesto (the "[[City]]") seeks a writ of mandate against the State Allocation Board.
+      notes:     in-sentence definition; defined-term short form for the named petitioner
+      reasoning: The bracketed phrase 'City' is used as a generic reference to the type of entity (a municipality) rather than as part of the specific proper name 'City of Modesto'. Since it refers to a class of agency rather than a specific named entity in this context, it should be lowercase.
+    [low-06] gold=lowercase → pred=capitalize (high)
+      Government Code section 25303 grants a [[board of supervisors]] general supervisorial authority over county officers.
+      notes:     statutory paraphrase
+      reasoning: The phrase 'board of supervisors' refers to a specific governing body within a county context, as indicated by the reference to 'county officers' and the specific Government Code section. Therefore, it denotes a specific identifiable agency rather than a generic class.
+    [low-09] gold=lowercase → pred=capitalize (high)
+      A [[board of trustees]] owes fiduciary duties distinct from those owed by a county board of supervisors.
+      notes:     comparative; two triggers in sentence — judging the first
+      reasoning: The phrase 'board of trustees' refers to a specific governing body responsible for the school district mentioned in the context, distinguishing it from the generic 'county board of supervisors'. Since it identifies a specific entity with defined duties, it should be capitalized.
+  prompt: v1a
+  corpus: 20 sentences (10 cap / 10 low)
+
+  running gemma4:e2b ...
+  gemma4:e2b  1/20  cap-01  ok   gold=capitalize pred=capitalize ✓  (14s)
+  gemma4:e2b  2/20  cap-02  ok   gold=capitalize pred=capitalize ✓  (16s)
+  gemma4:e2b  3/20  cap-03  ok   gold=capitalize pred=capitalize ✓  (19s)
+  gemma4:e2b  4/20  cap-04  ok   gold=capitalize pred=capitalize ✓  (22s)
+  gemma4:e2b  5/20  cap-05  ok   gold=capitalize pred=capitalize ✓  (25s)
+  gemma4:e2b  6/20  cap-06  ok   gold=capitalize pred=capitalize ✓  (27s)
+  gemma4:e2b  7/20  cap-07  ok   gold=capitalize pred=capitalize ✓  (30s)
+  gemma4:e2b  8/20  cap-08  ok   gold=capitalize pred=capitalize ✓  (33s)
+  gemma4:e2b  9/20  cap-09  ok   gold=capitalize pred=capitalize ✓  (35s)
+  gemma4:e2b 10/20  cap-10  ok   gold=capitalize pred=capitalize ✓  (37s)
+  gemma4:e2b 11/20  low-01  ok   gold=lowercase  pred=capitalize ✗  (40s)
+  gemma4:e2b 12/20  low-02  ok   gold=lowercase  pred=capitalize ✗  (42s)
+  gemma4:e2b 13/20  low-03  ok   gold=lowercase  pred=capitalize ✗  (45s)
+  gemma4:e2b 14/20  low-04  ok   gold=lowercase  pred=lowercase  ✓  (47s)
+  gemma4:e2b 15/20  low-05  ok   gold=lowercase  pred=capitalize ✗  (50s)
+  gemma4:e2b 16/20  low-06  ok   gold=lowercase  pred=capitalize ✗  (52s)
+  gemma4:e2b 17/20  low-07  ok   gold=lowercase  pred=capitalize ✗  (55s)
+  gemma4:e2b 18/20  low-08  ok   gold=lowercase  pred=capitalize ✗  (57s)
+  gemma4:e2b 19/20  low-09  ok   gold=lowercase  pred=capitalize ✗  (60s)
+  gemma4:e2b 20/20  low-10  ok   gold=lowercase  pred=capitalize ✗  (63s)
+    wrote results.v1a.gemma4__e2b.json
+
+  running gemma4:e4b ...
+  gemma4:e4b  1/20  cap-01  ok   gold=capitalize pred=capitalize ✓  (25s)
+  gemma4:e4b  2/20  cap-02  ok   gold=capitalize pred=capitalize ✓  (30s)
+  gemma4:e4b  3/20  cap-03  ok   gold=capitalize pred=capitalize ✓  (36s)
+  gemma4:e4b  4/20  cap-04  ok   gold=capitalize pred=capitalize ✓  (43s)
+  gemma4:e4b  5/20  cap-05  ok   gold=capitalize pred=capitalize ✓  (49s)
+  gemma4:e4b  6/20  cap-06  ok   gold=capitalize pred=capitalize ✓  (58s)
+  gemma4:e4b  7/20  cap-07  ok   gold=capitalize pred=capitalize ✓  (66s)
+  gemma4:e4b  8/20  cap-08  ok   gold=capitalize pred=capitalize ✓  (73s)
+  gemma4:e4b  9/20  cap-09  ok   gold=capitalize pred=capitalize ✓  (83s)
+  gemma4:e4b 10/20  cap-10  ok   gold=capitalize pred=capitalize ✓  (92s)
+  gemma4:e4b 11/20  low-01  ok   gold=lowercase  pred=lowercase  ✓  (101s)
+  gemma4:e4b 12/20  low-02  ok   gold=lowercase  pred=lowercase  ✓  (109s)
+  gemma4:e4b 13/20  low-03  ok   gold=lowercase  pred=capitalize ✗  (117s)
+  gemma4:e4b 14/20  low-04  ok   gold=lowercase  pred=lowercase  ✓  (127s)
+  gemma4:e4b 15/20  low-05  ok   gold=lowercase  pred=capitalize ✗  (137s)
+  gemma4:e4b 16/20  low-06  ok   gold=lowercase  pred=capitalize ✗  (149s)
+  gemma4:e4b 17/20  low-07  ok   gold=lowercase  pred=lowercase  ✓  (157s)
+  gemma4:e4b 18/20  low-08  ok   gold=lowercase  pred=lowercase  ✓  (166s)
+  gemma4:e4b 19/20  low-09  ok   gold=lowercase  pred=lowercase  ✓  (173s)
+  gemma4:e4b 20/20  low-10  ok   gold=lowercase  pred=lowercase  ✓  (182s)
+    wrote results.v1a.gemma4__e4b.json
+
+  running gemma4:26b ...
+  gemma4:26b  1/20  cap-01  ok   gold=capitalize pred=capitalize ✓  (25s)
+  gemma4:26b  2/20  cap-02  ok   gold=capitalize pred=capitalize ✓  (30s)
+  gemma4:26b  3/20  cap-03  ok   gold=capitalize pred=capitalize ✓  (35s)
+  gemma4:26b  4/20  cap-04  ok   gold=capitalize pred=capitalize ✓  (40s)
+  gemma4:26b  5/20  cap-05  ok   gold=capitalize pred=capitalize ✓  (46s)
+  gemma4:26b  6/20  cap-06  ok   gold=capitalize pred=capitalize ✓  (51s)
+  gemma4:26b  7/20  cap-07  ok   gold=capitalize pred=capitalize ✓  (57s)
+  gemma4:26b  8/20  cap-08  ok   gold=capitalize pred=capitalize ✓  (61s)
+  gemma4:26b  9/20  cap-09  ok   gold=capitalize pred=capitalize ✓  (67s)
+  gemma4:26b 10/20  cap-10  ok   gold=capitalize pred=capitalize ✓  (71s)
+  gemma4:26b 11/20  low-01  ok   gold=lowercase  pred=lowercase  ✓  (77s)
+  gemma4:26b 12/20  low-02  ok   gold=lowercase  pred=lowercase  ✓  (81s)
+  gemma4:26b 13/20  low-03  ok   gold=lowercase  pred=lowercase  ✓  (87s)
+  gemma4:26b 14/20  low-04  ok   gold=lowercase  pred=lowercase  ✓  (94s)
+  gemma4:26b 15/20  low-05  ok   gold=lowercase  pred=lowercase  ✓  (99s)
+  gemma4:26b 16/20  low-06  ok   gold=lowercase  pred=lowercase  ✓  (104s)
+  gemma4:26b 17/20  low-07  ok   gold=lowercase  pred=lowercase  ✓  (109s)
+  gemma4:26b 18/20  low-08  ok   gold=lowercase  pred=lowercase  ✓  (114s)
+  gemma4:26b 19/20  low-09  ok   gold=lowercase  pred=lowercase  ✓  (119s)
+  gemma4:26b 20/20  low-10  ok   gold=lowercase  pred=lowercase  ✓  (124s)
+    wrote results.v1a.gemma4__26b.json
+
+  running qwen3.5:9b ...
+  qwen3.5:9b  1/20  cap-01  ok   gold=capitalize pred=capitalize ✓  (40s)
+  qwen3.5:9b  2/20  cap-02  ok   gold=capitalize pred=capitalize ✓  (77s)
+  qwen3.5:9b  3/20  cap-03  ERR  gold=capitalize pred=None       ✗  (114s)
+  qwen3.5:9b  4/20  cap-04  ok   gold=capitalize pred=capitalize ✓  (150s)
+  qwen3.5:9b  5/20  cap-05  ok   gold=capitalize pred=capitalize ✓  (189s)
+  qwen3.5:9b  6/20  cap-06  ok   gold=capitalize pred=capitalize ✓  (226s)
+  qwen3.5:9b  7/20  cap-07  ok   gold=capitalize pred=capitalize ✓  (272s)
+  qwen3.5:9b  8/20  cap-08  ok   gold=capitalize pred=capitalize ✓  (309s)
+  qwen3.5:9b  9/20  cap-09  ok   gold=capitalize pred=capitalize ✓  (348s)
+  qwen3.5:9b 10/20  cap-10  ok   gold=capitalize pred=capitalize ✓  (385s)
+  qwen3.5:9b 11/20  low-01  ok   gold=lowercase  pred=lowercase  ✓  (423s)
+  qwen3.5:9b 12/20  low-02  ok   gold=lowercase  pred=lowercase  ✓  (462s)
+  qwen3.5:9b 13/20  low-03  ok   gold=lowercase  pred=lowercase  ✓  (501s)
+  qwen3.5:9b 14/20  low-04  ok   gold=lowercase  pred=lowercase  ✓  (540s)
+  qwen3.5:9b 15/20  low-05  ok   gold=lowercase  pred=lowercase  ✓  (579s)
+  qwen3.5:9b 16/20  low-06  ok   gold=lowercase  pred=capitalize ✗  (617s)
+  qwen3.5:9b 17/20  low-07  ok   gold=lowercase  pred=lowercase  ✓  (653s)
+  qwen3.5:9b 18/20  low-08  ok   gold=lowercase  pred=lowercase  ✓  (691s)
+  qwen3.5:9b 19/20  low-09  ok   gold=lowercase  pred=capitalize ✗  (730s)
+  qwen3.5:9b 20/20  low-10  ok   gold=lowercase  pred=lowercase  ✓  (765s)
+    wrote results.v1a.qwen3.5__9b.json
+
+model               ok err    acc    cap    low   lat(ms)
+------------------------------------------------------------
+gemma4:e2b          20   0  55.0% 100.0%  10.0%      3134
+gemma4:e4b          20   0  85.0% 100.0%  70.0%      9096
+gemma4:26b          20   0 100.0% 100.0% 100.0%      6225
+qwen3.5:9b          19   1  89.5%  90.0%  80.0%     38237
+
+  gemma4:e2b — 9 miss(es):
+    [low-01] gold=lowercase → pred=capitalize (high)
+      A [[school district]] that fails to provide a free appropriate public education may be liable under the IDEA.
+      notes:     indefinite generic; statutory class
+      reasoning: The term is used to refer to a specific, identifiable governmental entity within the context of the legal statement.
+    [low-02] gold=lowercase → pred=capitalize (high)
+      Every county in California is required to maintain a [[board of supervisors]].
+      notes:     quantified generic
+      reasoning: The sentence refers to a specific governing body within each county, making it an identifiable agency.
+    [low-03] gold=lowercase → pred=capitalize (high)
+      Any [[board of education]] considering a layoff resolution should consult Education Code section 44955.
+      notes:     quantified hypothetical
+      reasoning: The phrase refers to a specific governing body within a context, implying a particular entity rather than a generic concept.
+    [low-05] gold=lowercase → pred=capitalize (high)
+      Education Code section 35160 authorizes a [[school district]] to enter into contracts for the construction of school facilities.
+      notes:     statutory paraphrase
+      reasoning: The term refers to a specific, identifiable governmental entity that is authorized to enter into contracts, thus requiring capitalization.
+    [low-06] gold=lowercase → pred=capitalize (high)
+      Government Code section 25303 grants a [[board of supervisors]] general supervisorial authority over county officers.
+      notes:     statutory paraphrase
+      reasoning: The phrase refers to a specific governing body within a governmental structure, implying a particular entity rather than a generic concept.
+    [low-07] gold=lowercase → pred=capitalize (high)
+      California [[school districts]] are funded primarily through the Local Control Funding Formula.
+      notes:     plural class reference
+      reasoning: The sentence refers to the specific entities known as California school districts, implying a reference to the actual, identifiable bodies.
+    [low-08] gold=lowercase → pred=capitalize (high)
+      Unlike a private corporation, a [[school district]] is a creature of statute.
+      notes:     abstract class statement
+      reasoning: The sentence refers to a specific, identifiable entity being discussed in the context of legal statutes, implying a specific governing body.
+    [low-09] gold=lowercase → pred=capitalize (high)
+      A [[board of trustees]] owes fiduciary duties distinct from those owed by a county board of supervisors.
+      notes:     comparative; two triggers in sentence — judging the first
+      reasoning: The phrase refers to a specific, named governing body within the context of the sentence, implying a particular entity.
+    [low-10] gold=lowercase → pred=capitalize (high)
+      Most [[boards of education]] across the state have adopted similar policies regarding student cell phone use.
+      notes:     plural class reference
+      reasoning: The phrase refers to multiple, specific, identifiable governing bodies (school districts/boards of education) across the state, making capitalization appropriate when referring to them as specific entities.
+
+  gemma4:e4b — 3 miss(es):
+    [low-03] gold=lowercase → pred=capitalize (high)
+      Any [[board of education]] considering a layoff resolution should consult Education Code section 44955.
+      notes:     quantified hypothetical
+      reasoning: The context implies a specific, actionable body that must consult a specific code section, suggesting it refers to an identifiable governing body.
+    [low-05] gold=lowercase → pred=capitalize (high)
+      Education Code section 35160 authorizes a [[school district]] to enter into contracts for the construction of school facilities.
+      notes:     statutory paraphrase
+      reasoning: The sentence refers to 'Education Code section 35160,' which is a specific piece of legislation, implying that the 'school district' mentioned is a specific, identifiable entity authorized by that code, rather than a general concept.
+    [low-06] gold=lowercase → pred=capitalize (high)
+      Government Code section 25303 grants a [[board of supervisors]] general supervisorial authority over county officers.
+      notes:     statutory paraphrase
+      reasoning: The phrase "board of supervisors" is used here in the context of a specific legal grant of authority (Government Code section 25303), implying a specific, identifiable governing body within the context of the law, rather than speaking generally about the concept of a board of supervisors.
+
+  gemma4:26b — perfect, no misses
+
+  qwen3.5:9b — 3 miss(es):
+    [cap-03] ERROR: JSONDecodeError: Expecting ',' delimiter: line 2 column 98 (char 99)
+      Defendant Fresno Unified [[School District]] (the "District") demurs to the Complaint.
+      notes:     in-sentence definition; trigger is part of named defendant
+    [low-06] gold=lowercase → pred=capitalize (high)
+      Government Code section 25303 grants a [[board of supervisors]] general supervisorial authority over county officers.
+      notes:     statutory paraphrase
+      reasoning: The phrase 'board of supervisors' refers to a specific governing body defined by Government Code section 25303, which grants authority to the actual board of supervisors of a county, rather than using the term generically to describe any such board.
+    [low-09] gold=lowercase → pred=capitalize (high)
+      A [[board of trustees]] owes fiduciary duties distinct from those owed by a county board of supervisors.
+      notes:     comparative; two triggers in sentence — judging the first
+      reasoning: The phrase 'board of trustees' refers to a specific governing body of an institution (likely a school district or similar entity) in this context, distinguishing it from the generic 'county board of supervisors'. Since it identifies a specific agency rather than a general class, it should be capitalized.
+  prompt: v1b
+  corpus: 20 sentences (10 cap / 10 low)
+
+  running gemma4:e2b ...
+  gemma4:e2b  1/20  cap-01  ok   gold=capitalize pred=capitalize ✓  (15s)
+  gemma4:e2b  2/20  cap-02  ok   gold=capitalize pred=capitalize ✓  (17s)
+  gemma4:e2b  3/20  cap-03  ok   gold=capitalize pred=capitalize ✓  (19s)
+  gemma4:e2b  4/20  cap-04  ok   gold=capitalize pred=capitalize ✓  (22s)
+  gemma4:e2b  5/20  cap-05  ok   gold=capitalize pred=capitalize ✓  (25s)
+  gemma4:e2b  6/20  cap-06  ok   gold=capitalize pred=capitalize ✓  (28s)
+  gemma4:e2b  7/20  cap-07  ok   gold=capitalize pred=capitalize ✓  (31s)
+  gemma4:e2b  8/20  cap-08  ok   gold=capitalize pred=capitalize ✓  (33s)
+  gemma4:e2b  9/20  cap-09  ok   gold=capitalize pred=capitalize ✓  (36s)
+  gemma4:e2b 10/20  cap-10  ok   gold=capitalize pred=capitalize ✓  (38s)
+  gemma4:e2b 11/20  low-01  ok   gold=lowercase  pred=capitalize ✗  (41s)
+  gemma4:e2b 12/20  low-02  ok   gold=lowercase  pred=capitalize ✗  (43s)
+  gemma4:e2b 13/20  low-03  ok   gold=lowercase  pred=capitalize ✗  (46s)
+  gemma4:e2b 14/20  low-04  ok   gold=lowercase  pred=capitalize ✗  (48s)
+  gemma4:e2b 15/20  low-05  ok   gold=lowercase  pred=capitalize ✗  (51s)
+  gemma4:e2b 16/20  low-06  ok   gold=lowercase  pred=capitalize ✗  (55s)
+  gemma4:e2b 17/20  low-07  ok   gold=lowercase  pred=lowercase  ✓  (58s)
+  gemma4:e2b 18/20  low-08  ok   gold=lowercase  pred=capitalize ✗  (60s)
+  gemma4:e2b 19/20  low-09  ok   gold=lowercase  pred=capitalize ✗  (63s)
+  gemma4:e2b 20/20  low-10  ok   gold=lowercase  pred=lowercase  ✓  (66s)
+    wrote results.v1b.gemma4__e2b.json
+
+  running gemma4:e4b ...
+  gemma4:e4b  1/20  cap-01  ok   gold=capitalize pred=capitalize ✓  (27s)
+  gemma4:e4b  2/20  cap-02  ok   gold=capitalize pred=capitalize ✓  (34s)
+  gemma4:e4b  3/20  cap-03  ok   gold=capitalize pred=capitalize ✓  (40s)
+  gemma4:e4b  4/20  cap-04  ok   gold=capitalize pred=capitalize ✓  (49s)
+  gemma4:e4b  5/20  cap-05  ok   gold=capitalize pred=capitalize ✓  (57s)
+  gemma4:e4b  6/20  cap-06  ok   gold=capitalize pred=capitalize ✓  (67s)
+  gemma4:e4b  7/20  cap-07  ok   gold=capitalize pred=capitalize ✓  (77s)
+  gemma4:e4b  8/20  cap-08  ok   gold=capitalize pred=capitalize ✓  (85s)
+  gemma4:e4b  9/20  cap-09  ok   gold=capitalize pred=capitalize ✓  (93s)
+  gemma4:e4b 10/20  cap-10  ok   gold=capitalize pred=capitalize ✓  (102s)
+  gemma4:e4b 11/20  low-01  ok   gold=lowercase  pred=lowercase  ✓  (111s)
+  gemma4:e4b 12/20  low-02  ok   gold=lowercase  pred=lowercase  ✓  (121s)
+  gemma4:e4b 13/20  low-03  ok   gold=lowercase  pred=capitalize ✗  (129s)
+  gemma4:e4b 14/20  low-04  ok   gold=lowercase  pred=lowercase  ✓  (138s)
+  gemma4:e4b 15/20  low-05  ok   gold=lowercase  pred=capitalize ✗  (150s)
+  gemma4:e4b 16/20  low-06  ok   gold=lowercase  pred=capitalize ✗  (158s)
+  gemma4:e4b 17/20  low-07  ok   gold=lowercase  pred=lowercase  ✓  (164s)
+  gemma4:e4b 18/20  low-08  ok   gold=lowercase  pred=lowercase  ✓  (170s)
+  gemma4:e4b 19/20  low-09  ok   gold=lowercase  pred=lowercase  ✓  (180s)
+  gemma4:e4b 20/20  low-10  ok   gold=lowercase  pred=lowercase  ✓  (189s)
+    wrote results.v1b.gemma4__e4b.json
+
+  running gemma4:26b ...
+  gemma4:26b  1/20  cap-01  ok   gold=capitalize pred=capitalize ✓  (26s)
+  gemma4:26b  2/20  cap-02  ok   gold=capitalize pred=capitalize ✓  (31s)
+  gemma4:26b  3/20  cap-03  ok   gold=capitalize pred=capitalize ✓  (38s)
+  gemma4:26b  4/20  cap-04  ok   gold=capitalize pred=capitalize ✓  (43s)
+  gemma4:26b  5/20  cap-05  ok   gold=capitalize pred=capitalize ✓  (49s)
+  gemma4:26b  6/20  cap-06  ok   gold=capitalize pred=capitalize ✓  (54s)
+  gemma4:26b  7/20  cap-07  ok   gold=capitalize pred=capitalize ✓  (59s)
+  gemma4:26b  8/20  cap-08  ok   gold=capitalize pred=capitalize ✓  (64s)
+  gemma4:26b  9/20  cap-09  ok   gold=capitalize pred=capitalize ✓  (71s)
+  gemma4:26b 10/20  cap-10  ok   gold=capitalize pred=capitalize ✓  (76s)
+  gemma4:26b 11/20  low-01  ok   gold=lowercase  pred=lowercase  ✓  (81s)
+  gemma4:26b 12/20  low-02  ok   gold=lowercase  pred=lowercase  ✓  (86s)
+  gemma4:26b 13/20  low-03  ok   gold=lowercase  pred=lowercase  ✓  (92s)
+  gemma4:26b 14/20  low-04  ok   gold=lowercase  pred=lowercase  ✓  (99s)
+  gemma4:26b 15/20  low-05  ok   gold=lowercase  pred=lowercase  ✓  (105s)
+  gemma4:26b 16/20  low-06  ok   gold=lowercase  pred=lowercase  ✓  (110s)
+  gemma4:26b 17/20  low-07  ok   gold=lowercase  pred=lowercase  ✓  (115s)
+  gemma4:26b 18/20  low-08  ok   gold=lowercase  pred=lowercase  ✓  (120s)
+  gemma4:26b 19/20  low-09  ok   gold=lowercase  pred=lowercase  ✓  (127s)
+  gemma4:26b 20/20  low-10  ok   gold=lowercase  pred=lowercase  ✓  (132s)
+    wrote results.v1b.gemma4__26b.json
+
+  running qwen3.5:9b ...
+  qwen3.5:9b  1/20  cap-01  ok   gold=capitalize pred=capitalize ✓  (46s)
+  qwen3.5:9b  2/20  cap-02  ok   gold=capitalize pred=capitalize ✓  (89s)
+  qwen3.5:9b  3/20  cap-03  ERR  gold=capitalize pred=None       ✗  (134s)
+  qwen3.5:9b  4/20  cap-04  ok   gold=capitalize pred=capitalize ✓  (176s)
+  qwen3.5:9b  5/20  cap-05  ok   gold=capitalize pred=capitalize ✓  (220s)
+  qwen3.5:9b  6/20  cap-06  ok   gold=capitalize pred=capitalize ✓  (260s)
+  qwen3.5:9b  7/20  cap-07  ok   gold=capitalize pred=capitalize ✓  (301s)
+  qwen3.5:9b  8/20  cap-08  ok   gold=capitalize pred=capitalize ✓  (341s)
+  qwen3.5:9b  9/20  cap-09  ok   gold=capitalize pred=capitalize ✓  (383s)
+  qwen3.5:9b 10/20  cap-10  ok   gold=capitalize pred=capitalize ✓  (425s)
+  qwen3.5:9b 11/20  low-01  ok   gold=lowercase  pred=lowercase  ✓  (465s)
+  qwen3.5:9b 12/20  low-02  ok   gold=lowercase  pred=lowercase  ✓  (509s)
+  qwen3.5:9b 13/20  low-03  ok   gold=lowercase  pred=lowercase  ✓  (552s)
+  qwen3.5:9b 14/20  low-04  ok   gold=lowercase  pred=lowercase  ✓  (596s)
+  qwen3.5:9b 15/20  low-05  ok   gold=lowercase  pred=lowercase  ✓  (640s)
+  qwen3.5:9b 16/20  low-06  ok   gold=lowercase  pred=lowercase  ✓  (688s)
+  qwen3.5:9b 17/20  low-07  ok   gold=lowercase  pred=lowercase  ✓  (729s)
+  qwen3.5:9b 18/20  low-08  ok   gold=lowercase  pred=lowercase  ✓  (771s)
+  qwen3.5:9b 19/20  low-09  ok   gold=lowercase  pred=capitalize ✗  (811s)
+  qwen3.5:9b 20/20  low-10  ok   gold=lowercase  pred=lowercase  ✓  (850s)
+    wrote results.v1b.qwen3.5__9b.json
+
+model               ok err    acc    cap    low   lat(ms)
+------------------------------------------------------------
+gemma4:e2b          20   0  60.0% 100.0%  20.0%      3295
+gemma4:e4b          20   0  85.0% 100.0%  70.0%      9469
+gemma4:26b          20   0 100.0% 100.0% 100.0%      6607
+qwen3.5:9b          19   1  94.7%  90.0%  90.0%     42492
+
+  gemma4:e2b — 8 miss(es):
+    [low-01] gold=lowercase → pred=capitalize (high)
+      A [[school district]] that fails to provide a free appropriate public education may be liable under the IDEA.
+      notes:     indefinite generic; statutory class
+      reasoning: The term is used to refer to a specific, identifiable governmental entity within the context of the legal claim, implying a particular district.
+    [low-02] gold=lowercase → pred=capitalize (high)
+      Every county in California is required to maintain a [[board of supervisors]].
+      notes:     quantified generic
+      reasoning: The sentence refers to a specific governmental body within the context of California counties, making it a specific entity.
+    [low-03] gold=lowercase → pred=capitalize (high)
+      Any [[board of education]] considering a layoff resolution should consult Education Code section 44955.
+      notes:     quantified hypothetical
+      reasoning: The sentence refers to a specific entity, the 'board of education', implying a particular governing body rather than a generic class of agencies.
+    [low-04] gold=lowercase → pred=capitalize (high)
+      When a [[city]] seeks to acquire property by eminent domain, it must follow Code of Civil Procedure section 1245.230.
+      notes:     generic conditional
+      reasoning: The term 'city' here is used to refer to a specific, identifiable governmental entity seeking to acquire property, thus it should be capitalized.
+    [low-05] gold=lowercase → pred=capitalize (high)
+      Education Code section 35160 authorizes a [[school district]] to enter into contracts for the construction of school facilities.
+      notes:     statutory paraphrase
+      reasoning: The term 'school district' is used here to refer to a specific, identifiable governmental entity authorized by the code, making it a specific agency.
+    [low-06] gold=lowercase → pred=capitalize (high)
+      Government Code section 25303 grants a [[board of supervisors]] general supervisorial authority over county officers.
+      notes:     statutory paraphrase
+      reasoning: The sentence refers to a specific governing body within a legal context, implying a particular entity, even if it's a general term in this context, but the context of 'county officers' strongly suggests a specific county board. In legal drafting, specific bodies are often capitalized when referring to the specific entity being governed.
+    [low-08] gold=lowercase → pred=capitalize (high)
+      Unlike a private corporation, a [[school district]] is a creature of statute.
+      notes:     abstract class statement
+      reasoning: The sentence refers to a specific entity being discussed in the context of a legal proceeding, implying a specific, identifiable school district rather than a generic concept.
+    [low-09] gold=lowercase → pred=capitalize (high)
+      A [[board of trustees]] owes fiduciary duties distinct from those owed by a county board of supervisors.
+      notes:     comparative; two triggers in sentence — judging the first
+      reasoning: The phrase refers to a specific, identifiable governing body within the context of the legal comparison, implying a particular entity rather than a generic class.
+
+  gemma4:e4b — 3 miss(es):
+    [low-03] gold=lowercase → pred=capitalize (high)
+      Any [[board of education]] considering a layoff resolution should consult Education Code section 44955.
+      notes:     quantified hypothetical
+      reasoning: The sentence implies that the 'board of education' is a specific entity that is expected to be considering the resolution, making it refer to an identifiable agency.
+    [low-05] gold=lowercase → pred=capitalize (high)
+      Education Code section 35160 authorizes a [[school district]] to enter into contracts for the construction of school facilities.
+      notes:     statutory paraphrase
+      reasoning: The sentence refers to 'Education Code section 35160,' which is a specific piece of legislation, and the context implies that the law is granting authority to a specific type of entity that is a party to the proceeding or governed by the code, making it refer to a specific, identifiable agency.
+    [low-06] gold=lowercase → pred=capitalize (high)
+      Government Code section 25303 grants a [[board of supervisors]] general supervisorial authority over county officers.
+      notes:     statutory paraphrase
+      reasoning: The phrase "board of supervisors" is used here in the context of a specific legal grant (Government Code section 25303) and refers to a specific, identifiable governing body within the context of the law, not a general concept.
+
+  gemma4:26b — perfect, no misses
+
+  qwen3.5:9b — 2 miss(es):
+    [cap-03] ERROR: JSONDecodeError: Expecting ',' delimiter: line 2 column 98 (char 99)
+      Defendant Fresno Unified [[School District]] (the "District") demurs to the Complaint.
+      notes:     in-sentence definition; trigger is part of named defendant
+    [low-09] gold=lowercase → pred=capitalize (high)
+      A [[board of trustees]] owes fiduciary duties distinct from those owed by a county board of supervisors.
+      notes:     comparative; two triggers in sentence — judging the first
+      reasoning: The phrase 'board of trustees' refers to a specific governing body distinct from the 'county board of supervisors' mentioned in the same sentence, indicating it is a specific entity rather than a generic class.
