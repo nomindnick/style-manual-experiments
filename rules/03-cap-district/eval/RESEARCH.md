@@ -645,13 +645,34 @@ but lighter on RAM (~5 GB vs ~17 GB for 26b).
 
 ## Open questions / next experiments
 
-- [ ] **EXP-?: v1b-xml-prompt × the original 81-candidate fixture eval.**
+- [ ] **EXP-08: v1b-xml-prompt × the labeled fixture corpus, binary subset.**
   The highest-information test we have left. v1b-xml is now the qwen
   baseline (100% on 19/19 of v0-sentences). Two real questions: (a) does
   qwen's controlled-corpus saturation transfer to messy real-fixture
   cases, and (b) does e4b stay near 80% or fall further. This is the
   test that would graduate v1b-xml from "saturated on a controlled set"
   to "shippable prompt."
+
+  **Wired up and ready** — `rules/03-cap-district/eval/run_eval_v1bxml.py`.
+  Reuses v1b-xml prompt + markers from `v0-sentences/run.py` verbatim,
+  filters the fixture corpus to its binary subset (109 cap + 36 low =
+  145 of 247 candidates; 102 `do_not_flag` excluded by design — same
+  framing as v0-sentences, since deterministic out-of-scope handling is
+  prefilter territory not LLM territory), applies the EXP-07a quote-fix
+  to all inputs (catches the ~25 candidates with embedded `"ShortForm"`
+  defined-term short-forms that would otherwise trigger qwen's JSON
+  parse error), and reuses `score()` / `print_summary_table()` from
+  `run_eval.py` so the output table matches the heavyweight baseline
+  exactly. Model labels (`capitalize`/`lowercase`) get mapped to the
+  three-label gold space (`must_capitalize`/`must_lowercase`) for direct
+  comparison; the `do_not_flag` column will read 0 by construction.
+
+  Run command (full 4-model sweep, ~2.5 hours dominated by qwen):
+
+      .venv/bin/python rules/03-cap-district/eval/run_eval_v1bxml.py
+
+  Results land at `eval/results.v1b-xml.{model}.json` (different
+  namespace from the heavyweight `results.{model}.json` baselines).
 - [x] ~~**`cap-03` schema-violation root-cause.**~~ Resolved by
   EXP-07a. Embedded `"…"` in the input induces unescaped quotes in
   qwen's `reasoning` string. Fix: a one-line input pre-process that
