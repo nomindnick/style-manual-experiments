@@ -573,6 +573,120 @@ into two qualitatively different classes:
   genuine 100% on this corpus at ~42s/call. e4b is not a viable
   cheaper alternative — it's just a worse model.
 
+### EXP-08 — v1b-xml × labeled fixture corpus, binary subset × {gemma4:e2b, e4b, 26b, qwen3.5:9b}
+
+- **Date:** 2026-04-29
+- **Run:** `rules/03-cap-district/eval/run_eval_v1bxml.py` (defaults)
+- **Log:** `rules/03-cap-district/eval/eval_v1bxml.log`
+- **Per-model results:** `eval/results.v1b-xml.{model}.json`
+- **Wall time:** ~3h15m (e2b 13m, e4b 27m, 26b 27m, qwen 2h12m)
+
+The graduation test: does v1b-xml's saturation on v0-sentences (qwen
+100% on 19/19 ok; gemma4:26b 100%) transfer to messy real-fixture
+paragraphs? The corpus is the labeled fixture set filtered to its
+binary subset (109 cap + 36 low = 145 of 247 candidates; 102
+`do_not_flag` excluded by design). EXP-07a quote-fix applied to all
+inputs.
+
+**Per-model results.**
+
+| model        | ok      | acc    | cap-P  | cap-R  | low-P  | low-R  | lat (s) |
+|--------------|---------|--------|--------|--------|--------|--------|---------|
+| gemma4:e2b   | 145/145 |  77.9% |  78.1% |  98.2% | 100.0% |  16.7% |  5.3    |
+| gemma4:e4b   | 145/145 |  85.5% |  84.9% |  98.2% |  89.5% |  47.2% | 11.1    |
+| gemma4:26b   | 143/145 |  92.3% |  90.7% | 100.0% | 100.0% |  69.4% | 11.0    |
+| qwen3.5:9b   | 145/145 | **93.1%** |  93.0% |  98.2% |  93.3% |  77.8% | 54.6    |
+
+**Findings**
+
+- **qwen3.5:9b leads at 93.1% with zero schema errors.** The EXP-07a
+  quote-fix worked exactly as intended — qwen returned valid JSON on
+  all 145 candidates (including the ~25 with embedded `"ShortForm"`
+  defined-terms). v0-sentences's 100% saturation didn't fully transfer
+  (paragraph context exposes harder cases), but qwen still beat 26b on
+  every metric except cap-recall.
+- **gemma4:26b at 92.3% — close second, faster (~5× quicker per call).**
+  Two schema errors though: same fixture paragraph
+  (`realistic-mixed-p72`), different candidates. Raw output begins
+  `"reasoning":나The sentence...` — a stray Korean character (나, "na")
+  injected between the field name and the value. Different bug class
+  from the cap-03 unescaped-quote — looks like a token-level glitch in
+  26b's grammar-constrained decode on this specific paragraph. Not a
+  blocker (1.4% error rate), but should be tracked.
+- **Smaller gemmas improved on real briefs vs v0-sentences.** Surprising:
+  e2b 60.0% → 77.9% (+17.9pp) and e4b 80.0% → 85.5% (+5.5pp). Likely
+  because the real-fixture corpus is dominated by `must_capitalize`
+  cases (109/145 = 75%) and the smaller models have a strong
+  capitalize-bias — they get most of those right by accident. Per-class
+  reveals this clearly: e2b cap-recall 98% vs low-recall 17%; e4b cap-recall
+  98% vs low-recall 47%. They're not actually getting better at the
+  rule; they're getting credit for the corpus's class skew.
+- **Production candidates' lowercase-recall split is the real signal.**
+  The hard direction is `must_lowercase` (catching false-caps in real
+  briefs). Recall by model:
+  - qwen3.5:9b: 28/36 = **77.8%**
+  - gemma4:26b: 25/36 = 69.4%
+  - gemma4:e4b: 17/36 = 47.2%
+  - gemma4:e2b: 6/36 = 16.7%
+
+  qwen meaningfully beats 26b on the harder class. If catching false-caps
+  matters more than catching false-lows (likely — false-caps are the
+  more frequent error in attorney-drafted text), qwen wins outright.
+
+**Comparison to heavyweight baseline (apples-to-apples).**
+
+The original heavyweight-prompt eval covered 81 candidates (52 binary)
+on each of the production-candidate models. Restricted to the 52
+candidates in *both* runs:
+
+| model        | heavyweight acc | v1b-xml acc | Δ        | heavyweight cap-R | v1b-xml cap-R | heavyweight low-R | v1b-xml low-R |
+|--------------|-----------------|-------------|----------|-------------------|---------------|-------------------|---------------|
+| gemma4:e4b   |  78.8%          |  82.7%      | +3.8pp   | 100.0%            |  100.0%       |   8.3%            |  25.0%        |
+| gemma4:26b   |  70.8%          |  90.4%      | +19.6pp  |  70.0%            |  100.0%       |  50.0%            |  58.3%        |
+| qwen3.5:9b   |  61.5%          |  **90.4%**  | **+28.8pp** |  72.5%        |   97.5%       |  25.0%            |  66.7%        |
+
+These deltas are not subtle. Same models, same candidates, same gold
+labels — *only* the prompt and the marker format changed (and the
+quote-fix). qwen-9b moved from 61.5% to 90.4%, a +28.8pp lift, with
+matching gains on both per-class recalls. Lesson #1 ("Less is often
+more") just got its real-fixture confirmation.
+
+Schema-error counts on the full heavyweight files: e4b 0, 26b 4, qwen 1.
+v1b-xml on the same models: e4b 0, 26b 2, qwen 0. The quote-fix
+eliminated qwen's error and halved 26b's. (26b's remaining errors are
+the unicode-glitch bug, which the quote-fix isn't designed to address.)
+
+**qwen miss analysis (10 misses).** Breakdown: 8 false-caps, 2
+false-lows. The false-caps cluster:
+- Statutory-paraphrase cases (recurring v0-sentences pattern):
+  `clean-p57-c620` "specific decision-making body required by statute".
+- Anaphoric-in-paragraph cases: `kitchen-sink-p70-c178/c569` where
+  "the district" follows "a school district" within the same paragraph
+  and qwen reads it as anaphora to the specific entity. Genuine
+  ambiguity — gold says generic.
+- Possessive-after-named-entity: `clean-p50-c337` "city's" right after
+  "City of San Buenaventura". Qwen treats it as proper-name extension.
+
+The two false-lows are more interesting. `realistic-mixed-p22-c4` is
+the diagnostic case: qwen's reasoning literally says *"without prior
+context establishing a specific named entity (e.g., 'The Springfield
+District'), it functions generically here"*. The model is reasoning
+correctly given what we showed it — but the gold answer requires
+document-level knowledge that this paragraph belongs to a brief whose
+caption defines "District" as a party-substitute. **v1b-xml's design
+choice (no defined-term context) costs us here.** This is the cleanest
+candidate for a v2 prompt experiment.
+
+**Production reading.** qwen3.5:9b + v1b-xml on the binary subset is
+93.1% accuracy with 78% recall on the hard `must_lowercase` class, zero
+schema errors, and a 28.8pp lift over the heavyweight baseline on the
+same candidates. That's a shippable signal — the rule wouldn't be
+perfect, but it'd be meaningfully better than what was on the table
+before this research arc began. gemma4:26b is the latency-friendly
+fallback at 92.3% / 69% lowercase-recall (5× faster per call but
+slightly weaker on the harder class). Either is a real production
+candidate; choosing between them is the rule-implementation decision.
+
 ## Standings — model × prompt grid (final on v0-sentences)
 
 | model        | v0 acc | v1a acc | v1b acc | v1b-xml acc | best     |
@@ -590,9 +704,14 @@ but lighter on RAM (~5 GB vs ~17 GB for 26b).
 
 ## Key cross-experiment lessons
 
-1. **Less is often more.** v0-prompt (minimal, ~9 lines) beats the original
-   95-line heavyweight prompt by ~30pp on e4b and ~20pp on qwen-9b on this
-   easier corpus. Confirmed pending real-fixture re-test.
+1. **Less is often more — confirmed on real fixtures.** v0-prompt
+   (minimal, ~9 lines) beats the original 95-line heavyweight prompt
+   by ~30pp on e4b and ~20pp on qwen-9b on the controlled corpus.
+   EXP-08 confirmed this transfers: on the same 52 binary candidates
+   shared between the heavyweight baseline and v1b-xml, qwen-9b
+   jumped +28.8pp (61.5% → 90.4%) and 26b jumped +19.6pp (70.8% →
+   90.4%). The minimal prompt is not just easier to maintain — it's
+   substantively better at the rule.
 2. **Targeted prompt cues work — but model-dependently.** The "significance"
    sentence in v1b is a textbook targeted cue (it names the failure
    pattern). It works perfectly on qwen-9b and not at all on e4b.
@@ -645,34 +764,35 @@ but lighter on RAM (~5 GB vs ~17 GB for 26b).
 
 ## Open questions / next experiments
 
-- [ ] **EXP-08: v1b-xml-prompt × the labeled fixture corpus, binary subset.**
-  The highest-information test we have left. v1b-xml is now the qwen
-  baseline (100% on 19/19 of v0-sentences). Two real questions: (a) does
-  qwen's controlled-corpus saturation transfer to messy real-fixture
-  cases, and (b) does e4b stay near 80% or fall further. This is the
-  test that would graduate v1b-xml from "saturated on a controlled set"
-  to "shippable prompt."
-
-  **Wired up and ready** — `rules/03-cap-district/eval/run_eval_v1bxml.py`.
-  Reuses v1b-xml prompt + markers from `v0-sentences/run.py` verbatim,
-  filters the fixture corpus to its binary subset (109 cap + 36 low =
-  145 of 247 candidates; 102 `do_not_flag` excluded by design — same
-  framing as v0-sentences, since deterministic out-of-scope handling is
-  prefilter territory not LLM territory), applies the EXP-07a quote-fix
-  to all inputs (catches the ~25 candidates with embedded `"ShortForm"`
-  defined-term short-forms that would otherwise trigger qwen's JSON
-  parse error), and reuses `score()` / `print_summary_table()` from
-  `run_eval.py` so the output table matches the heavyweight baseline
-  exactly. Model labels (`capitalize`/`lowercase`) get mapped to the
-  three-label gold space (`must_capitalize`/`must_lowercase`) for direct
-  comparison; the `do_not_flag` column will read 0 by construction.
-
-  Run command (full 4-model sweep, ~2.5 hours dominated by qwen):
-
-      .venv/bin/python rules/03-cap-district/eval/run_eval_v1bxml.py
-
-  Results land at `eval/results.v1b-xml.{model}.json` (different
-  namespace from the heavyweight `results.{model}.json` baselines).
+- [x] ~~**EXP-08: v1b-xml-prompt × the labeled fixture corpus, binary subset.**~~
+  Done. qwen3.5:9b 93.1% / 26b 92.3% / e4b 85.5% / e2b 77.9%. +28.8pp
+  on qwen vs heavyweight baseline on the same candidates. See EXP-08
+  section above for the full breakdown.
+- [ ] **EXP-09 candidate: v1b-xml + defined-terms context.** EXP-08's
+  diagnostic miss `realistic-mixed-p22-c4` shows the no-context design
+  has a real cost — qwen's reasoning was *correct given what it saw*
+  but the right answer required document-level knowledge that
+  "District" is the defined party-substitute. The heavyweight harness
+  already has `extract_defined_terms()`; the experiment is to prepend
+  a one-line "Defined party-substitutes earlier in this document: …"
+  hint to v1b-xml's user message. Hypothesis: lifts qwen low-recall
+  by catching the 1–3 candidates that fail this exact pattern, costs
+  little elsewhere. Worth ~3 hours of qwen-only run to settle.
+- [ ] **26b unicode-glitch on `realistic-mixed-p72`.** Two schema
+  errors at the same paragraph; raw output begins
+  `"reasoning":나The sentence...` — a Korean character injected
+  between field name and value. Different bug class from cap-03's
+  unescaped-quote (which the quote-fix already handles). Probably
+  paragraph-content-specific; worth a single-paragraph probe similar
+  to cap-03's to isolate. Lower priority since it's 1.4% error rate
+  and 26b isn't the leading candidate.
+- [ ] **Decision: start writing `rule.py`?** 93.1% on real briefs with
+  zero schema errors and a 28.8pp lift over baseline is a shippable
+  signal. Open question is whether to ship now or do EXP-09 first
+  (cheap, narrow, high-value). My read: EXP-09 first — if it lifts
+  qwen low-recall a few points, that's directly a few fewer
+  false-flags in production, and the cost is one prompt change + one
+  qwen-only run.
 - [x] ~~**`cap-03` schema-violation root-cause.**~~ Resolved by
   EXP-07a. Embedded `"…"` in the input induces unescaped quotes in
   qwen's `reasoning` string. Fix: a one-line input pre-process that

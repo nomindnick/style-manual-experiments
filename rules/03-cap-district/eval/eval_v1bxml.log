@@ -1,0 +1,57 @@
+  prompt: v1b-xml (markers: <target>…</target>)
+  temperature: 0.0
+  corpus counts (gold): {'must_capitalize': 109, 'must_lowercase': 36, 'do_not_flag': 102, 'unlabeled': 0}
+  binary subset: 145 candidates (109 cap / 36 low)
+
+  running gemma4:e2b ...
+  gemma4:e2b: 20/145 (100.4s elapsed)
+  gemma4:e2b: 40/145 (219.5s elapsed)
+  gemma4:e2b: 60/145 (320.3s elapsed)
+  gemma4:e2b: 80/145 (431.1s elapsed)
+  gemma4:e2b: 100/145 (522.3s elapsed)
+  gemma4:e2b: 120/145 (624.4s elapsed)
+  gemma4:e2b: 140/145 (740.2s elapsed)
+  gemma4:e2b: 145/145 (768.3s elapsed)
+    wrote results.v1b-xml.gemma4__e2b.json
+
+  running gemma4:e4b ...
+  gemma4:e4b: 20/145 (210.6s elapsed)
+  gemma4:e4b: 40/145 (450.6s elapsed)
+  gemma4:e4b: 60/145 (652.1s elapsed)
+  gemma4:e4b: 80/145 (877.2s elapsed)
+  gemma4:e4b: 100/145 (1079.1s elapsed)
+  gemma4:e4b: 120/145 (1292.0s elapsed)
+  gemma4:e4b: 140/145 (1546.6s elapsed)
+  gemma4:e4b: 145/145 (1611.8s elapsed)
+    wrote results.v1b-xml.gemma4__e4b.json
+
+  running gemma4:26b ...
+  gemma4:26b: 20/145 (209.3s elapsed)
+  gemma4:26b: 40/145 (448.2s elapsed)
+  gemma4:26b: 60/145 (653.4s elapsed)
+  gemma4:26b: 80/145 (880.5s elapsed)
+  gemma4:26b: 100/145 (1069.6s elapsed)
+  gemma4:26b: 120/145 (1291.9s elapsed)
+  gemma4:26b: 140/145 (1533.3s elapsed)
+  gemma4:26b: 145/145 (1593.5s elapsed)
+    wrote results.v1b-xml.gemma4__26b.json
+
+  running qwen3.5:9b ...
+  qwen3.5:9b: 20/145 (1014.0s elapsed)
+  qwen3.5:9b: 40/145 (2134.8s elapsed)
+  qwen3.5:9b: 60/145 (3246.3s elapsed)
+  qwen3.5:9b: 80/145 (4324.3s elapsed)
+  qwen3.5:9b: 100/145 (5392.7s elapsed)
+  qwen3.5:9b: 120/145 (6483.6s elapsed)
+  qwen3.5:9b: 140/145 (7624.3s elapsed)
+  qwen3.5:9b: 145/145 (7923.4s elapsed)
+    wrote results.v1b-xml.qwen3.5__9b.json
+
+model                  ok  err    acc  cap-P  cap-R  low-P  low-R  dnf-P  dnf-R   lat(ms)
+----------------------------------------------------------------------------------------------------
+gemma4:e2b            145    0  77.9%  78.1%  98.2% 100.0%  16.7%   0.0%   0.0%      5299
+gemma4:e4b            145    0  85.5%  84.9%  98.2%  89.5%  47.2%   0.0%   0.0%     11116
+gemma4:26b            143    2  92.3%  90.7% 100.0% 100.0%  69.4%   0.0%   0.0%     10989
+qwen3.5:9b            145    0  93.1%  93.0%  98.2%  93.3%  77.8%   0.0%   0.0%     54644
+
+Confusion (gold → model) is in each model's results.<model>.json.
